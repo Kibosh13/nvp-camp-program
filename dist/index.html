@@ -16,7 +16,7 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="На главную">
-        <img src="assets/logo.png" alt="Эмблема проекта" />
+        <img src="assets/logo-transparent.png" alt="Эмблема проекта" />
         <span>НВП<br /><small>для детских лагерей</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Основная навигация">
@@ -46,7 +46,7 @@
         <div class="hero-visual" aria-label="Более 50 проведённых смен">
           <div class="hero-photo"></div>
           <div class="hero-badge"><strong>50+</strong><span>успешных<br />смен</span></div>
-          <img class="hero-mark" src="assets/logo.png" alt="" />
+          <img class="hero-mark" src="assets/logo-transparent.png" alt="" />
         </div>
         <div class="hero-footer">
           <span>Работаем по всей России</span>
@@ -78,21 +78,21 @@
           </div>
           <div class="map-card reveal" aria-label="Карта географии проведённых смен по России">
             <div class="map-head"><span>География смен</span><span>Россия</span></div>
-            <svg class="russia-map" viewBox="0 0 940 430" role="img" aria-labelledby="map-title map-desc">
-              <title id="map-title">География проектов</title>
-              <desc id="map-desc">Схематичная карта России с отметками реализованных смен в разных регионах.</desc>
-              <path class="map-shape" d="M36 228 66 187 110 183 125 153 183 159 208 125 275 139 308 111 350 134 391 102 439 120 477 93 525 108 552 81 594 100 621 80 662 107 704 94 733 127 786 121 809 151 855 154 892 187 865 215 904 248 864 267 826 253 802 284 747 271 721 298 676 290 645 322 594 308 553 335 506 313 465 341 417 316 375 337 332 309 281 329 248 295 198 301 166 270 124 280 99 251 60 258Z" />
-              <path class="map-line" d="M60 224c110-74 223-45 306-73 113-37 189-53 300-9 90 35 153 44 218 97" />
-              <g class="map-pins" aria-hidden="true">
-                <circle cx="102" cy="220" r="7" /><circle cx="183" cy="202" r="7" />
-                <circle cx="268" cy="213" r="7" /><circle cx="346" cy="179" r="7" />
-                <circle cx="427" cy="221" r="7" /><circle cx="502" cy="187" r="7" />
-                <circle cx="585" cy="213" r="7" /><circle cx="650" cy="157" r="7" />
-                <circle cx="724" cy="212" r="7" /><circle cx="784" cy="180" r="7" />
-                <circle cx="840" cy="231" r="7" /><circle cx="895" cy="223" r="7" />
-              </g>
-            </svg>
+            <div class="map-visual">
+              <img src="assets/russia-outline.svg" alt="Контурная карта России" />
+              <span class="map-pin" style="--x: 14%; --y: 60%"></span>
+              <span class="map-pin" style="--x: 22%; --y: 55%"></span>
+              <span class="map-pin" style="--x: 31%; --y: 58%"></span>
+              <span class="map-pin" style="--x: 39%; --y: 48%"></span>
+              <span class="map-pin" style="--x: 48%; --y: 51%"></span>
+              <span class="map-pin" style="--x: 57%; --y: 43%"></span>
+              <span class="map-pin" style="--x: 66%; --y: 54%"></span>
+              <span class="map-pin" style="--x: 74%; --y: 47%"></span>
+              <span class="map-pin" style="--x: 82%; --y: 53%"></span>
+              <span class="map-pin" style="--x: 89%; --y: 57%"></span>
+            </div>
             <p>Каждая точка — новый лагерь, новая команда и программа, настроенная под площадку.</p>
+            <a class="map-credit" href="https://commons.wikimedia.org/wiki/File:Map_of_Russian,_outline.svg" target="_blank" rel="noreferrer">Контур карты: Lokal_Profil, CC BY 2.5</a>
           </div>
         </div>
       </section>
@@ -104,14 +104,14 @@
           <p>Содержание строится вокруг практики, командного взаимодействия и понятных сценариев. Нагрузка адаптируется под возраст участников.</p>
         </div>
         <div class="program-grid">
-          <article class="program-card reveal"><span>01</span><h3>Тактическая подготовка</h3><p>Командные задачи, безопасное движение на местности и работа в группе.</p></article>
-          <article class="program-card reveal"><span>02</span><h3>Огневая подготовка</h3><p>Правила безопасности, устройство учебных макетов и основы меткости.</p></article>
-          <article class="program-card reveal"><span>03</span><h3>Тактическая медицина</h3><p>Алгоритмы первой помощи, эвакуация и практика на тренажёрах.</p></article>
-          <article class="program-card reveal"><span>04</span><h3>Связь</h3><p>Дисциплина радиообмена, передача координат и постановка задач.</p></article>
-          <article class="program-card reveal"><span>05</span><h3>Топография</h3><p>Карта, компас, построение маршрута и ориентирование на местности.</p></article>
-          <article class="program-card reveal"><span>06</span><h3>Инженерная подготовка</h3><p>Основы полевого быта, маскировка и решение прикладных задач.</p></article>
-          <article class="program-card reveal"><span>07</span><h3>Основы БПЛА</h3><p>Устройство, безопасное пилотирование и работа экипажа.</p></article>
-          <article class="program-card reveal"><span>08</span><h3>Строевая и командная</h3><p>Дисциплина, ответственность, взаимовыручка и слаженность.</p></article>
+          <article class="program-card reveal"><div class="program-card-visual program-card-photo" style="--card-image: url('assets/photos/ocean-field-training.webp')"><span>01</span><b aria-hidden="true">⌖</b><small>Полевая практика</small></div><div class="program-card-body"><h3>Тактическая подготовка</h3><p>Командные задачи, безопасное движение на местности и работа в группе.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual program-card-photo" style="--card-image: url('assets/photos/ocean-aiming.webp')"><span>02</span><b aria-hidden="true">⊕</b><small>Точность и контроль</small></div><div class="program-card-body"><h3>Огневая подготовка</h3><p>Правила безопасности, устройство учебных макетов и основы меткости.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual"><span>03</span><b aria-hidden="true">✚</b><small>Первая помощь</small></div><div class="program-card-body"><h3>Тактическая медицина</h3><p>Алгоритмы первой помощи, эвакуация и практика на тренажёрах.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual"><span>04</span><b aria-hidden="true">⌁</b><small>Радиообмен</small></div><div class="program-card-body"><h3>Связь</h3><p>Дисциплина радиообмена, передача координат и постановка задач.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual"><span>05</span><b aria-hidden="true">◇</b><small>Маршрут и ориентир</small></div><div class="program-card-body"><h3>Топография</h3><p>Карта, компас, построение маршрута и ориентирование на местности.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual"><span>06</span><b aria-hidden="true">▰</b><small>Полевые задачи</small></div><div class="program-card-body"><h3>Инженерная подготовка</h3><p>Основы полевого быта, маскировка и решение прикладных задач.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual"><span>07</span><b aria-hidden="true">△</b><small>Технологии</small></div><div class="program-card-body"><h3>Основы БПЛА</h3><p>Устройство, безопасное пилотирование и работа экипажа.</p></div></article>
+          <article class="program-card reveal"><div class="program-card-visual program-card-photo" style="--card-image: url('assets/photos/ocean-marching.webp')"><span>08</span><b aria-hidden="true">◎</b><small>Слаженность</small></div><div class="program-card-body"><h3>Строевая и командная</h3><p>Дисциплина, ответственность, взаимовыручка и слаженность.</p></div></article>
         </div>
       </section>
 
@@ -157,16 +157,19 @@
           <p class="section-kicker">06 / Атмосфера смены</p>
           <h2>Когда теория <span>становится действием</span></h2>
         </div>
-        <div class="gallery-grid" aria-label="Иллюстрации программы">
-          <figure class="gallery-item gallery-item-wide reveal"><img src="assets/training-triptych.jpg" alt="Команда проходит полосу препятствий в лесу" /><figcaption><span>Команда</span><b>Преодолеть вместе</b></figcaption></figure>
-          <figure class="gallery-item gallery-item-center reveal"><img src="assets/training-triptych.jpg" alt="Инструктор показывает приёмы первой помощи" /><figcaption><span>Практика</span><b>Научиться действовать</b></figcaption></figure>
-          <figure class="gallery-item gallery-item-right reveal"><img src="assets/training-triptych.jpg" alt="Группа работает с картой и средствами связи" /><figcaption><span>Задача</span><b>Принять решение</b></figcaption></figure>
+        <div class="gallery-grid" aria-label="Фотографии реальной смены во ВДЦ «Океан»">
+          <figure class="gallery-item gallery-item-wide reveal"><img src="assets/photos/ocean-field-training.webp" alt="Участник отрабатывает полевое упражнение" /><figcaption><span>Полевая практика</span><b>Научиться действовать</b></figcaption></figure>
+          <figure class="gallery-item gallery-item-aiming reveal"><img src="assets/photos/ocean-aiming.webp" alt="Участница на занятии по огневой подготовке с учебным макетом" /><figcaption><span>Точность</span><b>Контроль и безопасность</b></figcaption></figure>
+          <figure class="gallery-item gallery-item-lineup reveal"><img src="assets/photos/ocean-lineup.webp" alt="Группа с инструктором на построении" /><figcaption><span>Наставничество</span><b>Строго к задаче</b></figcaption></figure>
+          <figure class="gallery-item gallery-item-marching reveal"><img src="assets/photos/ocean-marching.webp" alt="Отряд на строевой подготовке" /><figcaption><span>Дисциплина</span><b>Двигаться как команда</b></figcaption></figure>
+          <figure class="gallery-item gallery-item-cadets reveal"><img src="assets/photos/ocean-cadets.webp" alt="Участники в форме на мероприятии смены" /><figcaption><span>Характер</span><b>Держать слово</b></figcaption></figure>
+          <figure class="gallery-item gallery-item-team reveal"><img src="assets/photos/ocean-team.webp" alt="Участники смены радуются общей победе" /><figcaption><span>Команда</span><b>Побеждать вместе</b></figcaption></figure>
         </div>
-        <p class="gallery-note reveal">Иллюстративные кадры. Фотографии реальных смен можно подключить после открытия доступа к галерее заказчика.</p>
+        <p class="gallery-note reveal">В галерее — реальные фотографии из архива программы, смена во ВДЦ «Океан».</p>
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <div class="closing-mark reveal"><img src="assets/logo.png" alt="" /></div>
+        <div class="closing-mark reveal"><img src="assets/logo-transparent.png" alt="" /></div>
         <div class="closing-copy reveal">
           <p class="section-kicker">Выездная программа для лагерей</p>
           <h2 id="closing-title">Смена, после которой <span>становятся командой</span></h2>
@@ -177,7 +180,7 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#top" aria-label="Наверх"><img src="assets/logo.png" alt="" /><span>НВП<br /><small>для детских лагерей</small></span></a>
+      <a class="brand" href="#top" aria-label="Наверх"><img src="assets/logo-transparent.png" alt="" /><span>НВП<br /><small>для детских лагерей</small></span></a>
       <p>Практика · дисциплина · команда</p>
       <p>© 2026</p>
     </footer>
