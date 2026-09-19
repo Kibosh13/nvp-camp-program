@@ -151,10 +151,14 @@ h1 em { color: var(--red-bright); font-style: normal; }
 .team h2 span { color: var(--red); }
 .team-intro p { margin: 0; color: #55534f; font-size: clamp(18px, 1.4vw, 22px); line-height: 1.5; }
 .roles-grid { margin-top: 72px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; background: transparent; border: 0; }
-.role-card { min-height: 0; aspect-ratio: 1; padding: 24px; display: flex; flex-direction: column; border: 1px solid #cbc8c1; background: #fff; }
-.role-card b { color: var(--muted); font: 700 12px/1 "Courier New", monospace; }
-.role-icon { width: 58px; height: 58px; margin: 26px 0 auto; display: grid; place-items: center; border: 1px solid var(--red); color: var(--red); font-size: 28px; transform: rotate(-3deg); }
-.role-card h3 { margin: 24px 0 10px; max-width: 280px; font-size: clamp(18px, 1.4vw, 23px); font-weight: 800; line-height: 1.08; letter-spacing: -.012em; text-transform: uppercase; }
+.role-card { min-height: 0; aspect-ratio: 1; overflow: hidden; display: grid; grid-template-rows: 56% 44%; border: 1px solid #cbc8c1; background: #fff; }
+.role-photo { position: relative; display: grid; place-items: center; overflow: hidden; color: #77746e; background: linear-gradient(145deg, #dedbd4, #f0eee9); }
+.role-photo::before { content: ""; position: absolute; width: 34%; aspect-ratio: 1; top: 17%; border-radius: 50%; background: rgba(181,28,38,.13); }
+.role-photo::after { content: ""; position: absolute; width: 64%; height: 52%; bottom: -24%; border-radius: 50% 50% 0 0; background: rgba(181,28,38,.13); }
+.role-photo span { position: relative; z-index: 1; margin-top: auto; padding: 0 0 16px; font: 700 10px/1.2 "Courier New", monospace; letter-spacing: .12em; text-transform: uppercase; }
+.role-photo b { position: absolute; z-index: 2; top: 14px; left: 16px; color: #5f5d58; font: 700 12px/1 "Courier New", monospace; }
+.role-card-body { min-height: 0; padding: 20px; display: flex; flex-direction: column; }
+.role-card h3 { margin: 0 0 10px; max-width: 280px; font-size: clamp(17px, 1.25vw, 21px); font-weight: 800; line-height: 1.08; letter-spacing: -.012em; text-transform: uppercase; }
 .role-card p { margin: 0; max-width: 350px; color: #64625d; font-size: 14px; }
 .team-quote { margin: 72px 0 0; padding: 30px 0 0; border-top: 1px solid var(--red); color: #3e3d39; font: 700 clamp(22px, 2.5vw, 40px)/1.24 "Arial Narrow", Arial, sans-serif; letter-spacing: -.01em; text-transform: uppercase; }
 
@@ -237,7 +241,6 @@ h1 em { color: var(--red-bright); font-style: normal; }
   .program-grid { grid-template-columns: repeat(2, 1fr); }
   .roles-grid { grid-template-columns: repeat(3, 1fr); }
   .role-card { min-height: 0; }
-  .role-icon { margin-top: 34px; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 330px; }
   .gallery-item, .gallery-item-wide, .gallery-item-aiming, .gallery-item-lineup, .gallery-item-marching, .gallery-item-cadets, .gallery-item-team { grid-column: auto; grid-row: auto; }
   .gallery-item-wide { grid-column: 1 / -1; }
@@ -272,9 +275,8 @@ h1 em { color: var(--red-bright); font-style: normal; }
   .roles-grid { margin-top: 50px; }
   .roles-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(82vw, 320px); gap: 12px; overflow-x: auto; padding-bottom: 16px; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: var(--red) #d8d5ce; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
   .role-card { aspect-ratio: 1; scroll-snap-align: start; }
-  .role-card { padding: 20px; }
-  .role-icon { width: 50px; height: 50px; margin: 18px 0 auto; font-size: 24px; }
-  .role-card h3 { margin: 16px 0 8px; font-size: 20px; }
+  .role-card-body { padding: 18px; }
+  .role-card h3 { margin: 0 0 8px; font-size: 19px; }
   .role-card p { font-size: 13px; }
   .equipment-board { min-height: 540px; padding: 22px; }
   .equipment-board li { font-size: 13px; }
