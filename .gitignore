@@ -51,3 +51,10 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+
+# Beget deployment secrets and runtime data
+/beget-app/public_html/private/settings.php
+/beget-app/public_html/private/data/*
+!/beget-app/public_html/private/data/.gitkeep
+/beget-app/public_html/uploads/*
+!/beget-app/public_html/uploads/.htaccess
