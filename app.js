@@ -29,3 +29,13 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+const campCarousel = document.querySelector('.camp-carousel-window');
+
+document.querySelectorAll('[data-carousel-direction]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const direction = Number(button.dataset.carouselDirection) || 1;
+    const distance = Math.max(280, campCarousel?.clientWidth * 0.78 || 0);
+    campCarousel?.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  });
+});
