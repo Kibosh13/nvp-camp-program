@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await readSiteConfig();
+  const socialImage = "https://kmbnvp.ru/assets/logo-transparent.png?v=4";
   return {
     title: config.seo.title,
     description: config.seo.description,
@@ -13,6 +14,15 @@ export async function generateMetadata(): Promise<Metadata> {
       ? { index: false, follow: false, noarchive: true, googleBot: { index: false, follow: false, noimageindex: true } }
       : { index: true, follow: true },
     icons: { icon: config.brand.logo.src },
+    openGraph: {
+      type: "website",
+      url: "https://kmbnvp.ru/",
+      siteName: config.brand.title,
+      title: config.seo.title,
+      description: config.seo.description,
+      images: [{ url: socialImage, width: 632, height: 576, alt: config.brand.logo.alt }],
+    },
+    twitter: { card: "summary", title: config.seo.title, description: config.seo.description, images: [socialImage] },
   };
 }
 

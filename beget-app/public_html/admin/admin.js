@@ -341,10 +341,10 @@
     grid.append(field("Рубрика", ["team", "kicker"]), field("Заголовок", ["team", "title"]), field("Красная часть", ["team", "accent"]), field("Описание", ["team", "intro"], { multiline: true }), field("Цитата", ["team", "quote"], { className: "span-2" }));
     meta.body.append(grid);
     const list = panel(`Специалисты · ${config.team.members.length}`);
-    list.head.append(button("+ Добавить", () => { config.team.members.push({ title: "Новый специалист", description: "Описание", image: { src: "", alt: "" } }); markDirty(); render(); }, "button primary"));
+    list.head.append(button("+ Добавить", () => { config.team.members.push({ title: "Новый специалист", credentials: "", description: "Описание", image: { src: "", alt: "" } }); markDirty(); render(); }, "button primary"));
     const collection = el("div", "collection");
     config.team.members.forEach((member, index) => collection.append(collectionCard(member.title, index, config.team.members, ["team", "members"], (body) => {
-      body.append(field("Роль или имя", ["team", "members", index, "title"]), field("Описание", ["team", "members", index, "description"], { multiline: true }), imageField("Фото сотрудника", ["team", "members", index, "image"]));
+      body.append(field("Роль или имя", ["team", "members", index, "title"]), field("Регалии", ["team", "members", index, "credentials"], { multiline: true }), field("Описание", ["team", "members", index, "description"], { multiline: true }), imageField("Фото сотрудника", ["team", "members", index, "image"]));
     })));
     list.body.append(collection);
     return [meta, list];
@@ -398,7 +398,7 @@
   function renderClosing() {
     const closing = panel("Финальный блок");
     const grid = el("div", "grid");
-    grid.append(field("Рубрика", ["closing", "kicker"]), field("Заголовок", ["closing", "title"]), field("Красная часть", ["closing", "accent"]), field("Описание", ["closing", "description"], { multiline: true }));
+    grid.append(field("Рубрика", ["closing", "kicker"]), field("Заголовок", ["closing", "title"]), field("Красная часть", ["closing", "accent"]), field("Описание", ["closing", "description"], { multiline: true }), field("Телефон", ["closing", "phone"]), field("E-mail", ["closing", "email"]));
     closing.body.append(grid);
     const footer = panel("Подвал сайта");
     const footerGrid = el("div", "grid");

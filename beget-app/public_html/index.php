@@ -13,7 +13,6 @@ $equipment = $site['equipment'];
 $gallery = $site['gallery'];
 $closing = $site['closing'];
 $footer = $site['footer'];
-$icons = ['⌖', '⊕', '✚', '⌁', '◇', '▰', '△', '◎', '↗', '≈', '◆', '◌'];
 $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lineup', 'gallery-item-marching', 'gallery-item-cadets', 'gallery-item-team'];
 ?>
 <!doctype html>
@@ -24,9 +23,25 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
   <meta name="description" content="<?= h($seo['description']) ?>">
   <?php if (!empty($seo['noIndex'])): ?><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"><?php endif; ?>
   <meta name="theme-color" content="#f5f4f0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<?= h($brand['title']) ?>">
+  <meta property="og:title" content="<?= h($seo['title']) ?>">
+  <meta property="og:description" content="<?= h($seo['description']) ?>">
+  <meta property="og:url" content="https://kmbnvp.ru/">
+  <meta property="og:image" content="https://kmbnvp.ru/assets/logo-transparent.png?v=4">
+  <meta property="og:image:secure_url" content="https://kmbnvp.ru/assets/logo-transparent.png?v=4">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="632">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="Логотип проекта НВП для детских лагерей">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<?= h($seo['title']) ?>">
+  <meta name="twitter:description" content="<?= h($seo['description']) ?>">
+  <meta name="twitter:image" content="https://kmbnvp.ru/assets/logo-transparent.png?v=4">
   <title><?= h($seo['title']) ?></title>
   <link rel="icon" type="image/png" href="<?= h(public_image_url((string)$brand['logo']['src'])) ?>">
-  <link rel="stylesheet" href="/styles.css?v=3">
+  <link rel="apple-touch-icon" href="/assets/logo-transparent.png?v=4">
+  <link rel="stylesheet" href="/styles.css?v=4">
   <script src="/app.js?v=2" defer></script>
 </head>
 <body>
@@ -54,7 +69,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
           <figcaption><span><?= h($hero['photoLabel']) ?></span><strong><?= h($hero['photoCaption']) ?></strong></figcaption>
         </figure>
         <figure class="hero-showcase-small"><img src="<?= h(public_image_url((string)$hero['secondaryImage']['src'])) ?>" alt="<?= h($hero['secondaryImage']['alt']) ?>"></figure>
-        <div class="hero-showcase-data"><b><?= h($hero['statValue']) ?></b><span><?= h($hero['statLabel']) ?></span></div>
+        <div class="hero-showcase-data" aria-label="Логотип проекта"><img src="<?= h(public_image_url((string)$brand['logo']['src'])) ?>" alt=""></div>
       </aside>
       <div class="hero-footer"><span><?= h($hero['footerLeft']) ?></span><span class="scroll-note"><?= h($hero['footerRight']) ?></span></div>
     </section>
@@ -90,7 +105,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
       <div class="program-grid">
         <?php foreach ($program['cards'] as $index => $card): $image = public_image_url((string)$card['image']['src']); ?>
         <article class="program-card reveal">
-          <div class="program-card-visual program-card-photo" style="--card-image:url('<?= h($image) ?>')"><span><?= h(str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT)) ?></span><b aria-hidden="true"><?= h($icons[$index % count($icons)]) ?></b><small><?= h($card['eyebrow']) ?></small></div>
+          <div class="program-card-visual program-card-photo" style="--card-image:url('<?= h($image) ?>')"><span><?= h(str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT)) ?></span><b aria-hidden="true">→</b><small><?= h($card['eyebrow']) ?></small></div>
           <div class="program-card-body"><h3><?= h($card['title']) ?></h3><p><?= h($card['description']) ?></p></div>
         </article>
         <?php endforeach; ?>
@@ -106,7 +121,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
         <?php foreach ($team['members'] as $index => $member): $image = public_image_url((string)$member['image']['src']); ?>
         <article class="role-card reveal">
           <div class="role-photo<?= $image ? ' has-image' : '' ?>"><?php if ($image): ?><img src="<?= h($image) ?>" alt="<?= h($member['image']['alt']) ?>" loading="lazy"><?php else: ?><span>Фото сотрудника</span><?php endif; ?><b><?= h(str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT)) ?></b></div>
-          <div class="role-card-body"><h3><?= h($member['title']) ?></h3><p><?= h($member['description']) ?></p></div>
+          <div class="role-card-body"><h3><?= h($member['title']) ?></h3><?php if (!empty($member['credentials'])): ?><p class="role-credentials"><?= h($member['credentials']) ?></p><?php endif; ?><p><?= h($member['description']) ?></p></div>
         </article>
         <?php endforeach; ?>
       </div>
@@ -131,7 +146,6 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
           <p class="section-kicker"><?= h($gallery['carouselKicker']) ?></p>
           <h3 id="camp-carousel-title"><?= h($gallery['carouselTitle']) ?></h3>
           <p><?= h($gallery['carouselDescription']) ?></p>
-          <div class="camp-carousel-controls" aria-label="Управление фотогалереей"><button class="carousel-button" type="button" data-carousel-direction="-1" aria-label="Предыдущие фотографии">←</button><button class="carousel-button" type="button" data-carousel-direction="1" aria-label="Следующие фотографии">→</button></div>
         </div>
         <div class="camp-carousel-window"><div class="camp-carousel-track"><div class="camp-carousel-group">
           <?php foreach ($gallery['carousel'] as $item): $image = public_image_url((string)$item['image']['src']); ?><figure><img src="<?= h($image) ?>" alt="<?= h($item['image']['alt']) ?>" loading="lazy" decoding="async"><figcaption><?= h($item['caption']) ?></figcaption></figure><?php endforeach; ?>
@@ -141,7 +155,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
 
     <section class="closing" aria-labelledby="closing-title">
       <div class="closing-mark reveal"><img src="<?= h(public_image_url((string)$brand['logo']['src'])) ?>" alt=""></div>
-      <div class="closing-copy reveal"><p class="section-kicker"><?= h($closing['kicker']) ?></p><h2 id="closing-title"><?= h($closing['title']) ?> <span><?= h($closing['accent']) ?></span></h2><p><?= h($closing['description']) ?></p></div>
+      <div class="closing-copy reveal"><p class="section-kicker"><?= h($closing['kicker']) ?></p><h2 id="closing-title"><?= h($closing['title']) ?> <span><?= h($closing['accent']) ?></span></h2><p><?= h($closing['description']) ?></p><?php if (!empty($closing['phone']) || !empty($closing['email'])): ?><div class="contact-actions"><?php if (!empty($closing['phone'])): ?><a href="tel:<?= h((string)preg_replace('/[^+\d]/', '', (string)$closing['phone'])) ?>"><span>Телефон</span><b><?= h($closing['phone']) ?></b></a><?php endif; ?><?php if (!empty($closing['email'])): ?><a href="mailto:<?= h($closing['email']) ?>"><span>Почта</span><b><?= h($closing['email']) ?></b></a><?php endif; ?></div><?php endif; ?></div>
     </section>
   </main>
 

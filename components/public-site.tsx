@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import type { SiteConfig } from "@/lib/site-config";
 
-const programSymbols = ["⌖", "⊕", "✚", "⌁", "◇", "▰", "△", "◎", "↗", "≈", "◆", "◌"];
 const galleryClasses = ["gallery-item-wide", "gallery-item-aiming", "gallery-item-lineup", "gallery-item-marching", "gallery-item-cadets", "gallery-item-team"];
 
 export function PublicSite({ config }: { config: SiteConfig }) {
@@ -76,7 +75,7 @@ export function PublicSite({ config }: { config: SiteConfig }) {
               <figcaption><span>{config.hero.photoLabel}</span><strong>{config.hero.photoCaption}</strong></figcaption>
             </figure>
             <figure className="hero-showcase-small"><img src={config.hero.secondaryImage.src} alt={config.hero.secondaryImage.alt} /></figure>
-            <div className="hero-showcase-data"><b>{config.hero.statValue}</b><span>{config.hero.statLabel}</span></div>
+            <div className="hero-showcase-data" aria-label="Логотип проекта"><img src={config.brand.logo.src} alt="" /></div>
           </aside>
           <div className="hero-footer"><span>{config.hero.footerLeft}</span><span className="scroll-note">{config.hero.footerRight}</span></div>
         </section>
@@ -120,7 +119,7 @@ export function PublicSite({ config }: { config: SiteConfig }) {
             {config.program.cards.map((card, index) => (
               <article className="program-card reveal" key={index}>
                 <div className="program-card-visual program-card-photo" style={{ "--card-image": `url('${card.image.src}')` } as React.CSSProperties}>
-                  <span>{String(index + 1).padStart(2, "0")}</span><b aria-hidden="true">{programSymbols[index % programSymbols.length]}</b><small>{card.eyebrow}</small>
+                  <span>{String(index + 1).padStart(2, "0")}</span><b aria-hidden="true">→</b><small>{card.eyebrow}</small>
                 </div>
                 <div className="program-card-body"><h3>{card.title}</h3><p>{card.description}</p></div>
               </article>
@@ -139,7 +138,7 @@ export function PublicSite({ config }: { config: SiteConfig }) {
                 <div className={`role-photo${member.image.src ? " has-image" : ""}`}>
                   {member.image.src ? <img src={member.image.src} alt={member.image.alt} /> : <span>Фото сотрудника</span>}<b>{String(index + 1).padStart(2, "0")}</b>
                 </div>
-                <div className="role-card-body"><h3>{member.title}</h3><p>{member.description}</p></div>
+                <div className="role-card-body"><h3>{member.title}</h3>{member.credentials ? <p className="role-credentials">{member.credentials}</p> : null}<p>{member.description}</p></div>
               </article>
             ))}
           </div>
@@ -158,14 +157,14 @@ export function PublicSite({ config }: { config: SiteConfig }) {
           </div>
           <p className="gallery-note reveal">{config.gallery.note}</p>
           <div className="camp-carousel reveal" aria-labelledby="camp-carousel-title">
-            <div className="camp-carousel-head"><p className="section-kicker">{config.gallery.carouselKicker}</p><h3 id="camp-carousel-title">{config.gallery.carouselTitle}</h3><p>{config.gallery.carouselDescription}</p><div className="camp-carousel-controls" aria-label="Управление фотогалереей"><button className="carousel-button" type="button" data-carousel-direction="-1" aria-label="Предыдущие фотографии">←</button><button className="carousel-button" type="button" data-carousel-direction="1" aria-label="Следующие фотографии">→</button></div></div>
+            <div className="camp-carousel-head"><p className="section-kicker">{config.gallery.carouselKicker}</p><h3 id="camp-carousel-title">{config.gallery.carouselTitle}</h3><p>{config.gallery.carouselDescription}</p></div>
             <div className="camp-carousel-window"><div className="camp-carousel-track"><div className="camp-carousel-group">{config.gallery.carousel.map((item, index) => <figure key={index}><img src={item.image.src} alt={item.image.alt} loading="lazy" decoding="async" /><figcaption>{item.caption}</figcaption></figure>)}</div></div></div>
           </div>
         </section>
 
         <section className="closing" aria-labelledby="closing-title">
           <div className="closing-mark reveal"><img src={config.brand.logo.src} alt="" /></div>
-          <div className="closing-copy reveal"><p className="section-kicker">{config.closing.kicker}</p><h2 id="closing-title">{config.closing.title} <span>{config.closing.accent}</span></h2><p>{config.closing.description}</p></div>
+          <div className="closing-copy reveal"><p className="section-kicker">{config.closing.kicker}</p><h2 id="closing-title">{config.closing.title} <span>{config.closing.accent}</span></h2><p>{config.closing.description}</p>{config.closing.phone || config.closing.email ? <div className="contact-actions">{config.closing.phone ? <a href={`tel:${config.closing.phone.replace(/[^+\d]/g, "")}`}><span>Телефон</span><b>{config.closing.phone}</b></a> : null}{config.closing.email ? <a href={`mailto:${config.closing.email}`}><span>Почта</span><b>{config.closing.email}</b></a> : null}</div> : null}</div>
         </section>
       </main>
 

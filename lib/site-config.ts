@@ -62,7 +62,7 @@ export type SiteConfig = {
     accent: string;
     intro: string;
     quote: string;
-    members: Array<{ title: string; description: string; image: ImageValue }>;
+    members: Array<{ title: string; credentials?: string; description: string; image: ImageValue }>;
   };
   equipment: {
     kicker: string;
@@ -82,7 +82,7 @@ export type SiteConfig = {
     carouselDescription: string;
     carousel: Array<{ caption: string; image: ImageValue }>;
   };
-  closing: { kicker: string; title: string; accent: string; description: string };
+  closing: { kicker: string; title: string; accent: string; description: string; phone: string; email: string };
   footer: { tagline: string; copyright: string };
 };
 
@@ -186,7 +186,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
       ["Водная безопасность", "Практические занятия у воды."],
       ["Командные тренеры", "Лидерство и распределение ролей."],
       ["Руководители программы", "Сценарий смены и контроль качества."],
-    ].map(([title, description]) => ({ title, description, image: image("", `Фотография: ${title}`) })),
+    ].map(([title, description]) => ({ title, credentials: "", description, image: image("", `Фотография: ${title}`) })),
   },
   equipment: {
     kicker: "05 / Материально-техническое обеспечение",
@@ -229,6 +229,8 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
     title: "Смена, после которой",
     accent: "становятся командой",
     description: "Подготовим содержание под возраст, длительность смены и возможности площадки.",
+    phone: "",
+    email: "",
   },
   footer: { tagline: "Практика · дисциплина · команда", copyright: "© 2026" },
 };
