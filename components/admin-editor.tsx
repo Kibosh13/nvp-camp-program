@@ -108,7 +108,7 @@ export function AdminEditor({ initialConfig, userName }: { initialConfig: SiteCo
               <Field label="Рубрика" value={config.closing.kicker} onChange={(v) => setValue(["closing","kicker"], v)} />
               <div className="grid gap-4 md:grid-cols-2"><Field label="Заголовок" value={config.closing.title} onChange={(v) => setValue(["closing","title"], v)} /><Field label="Красная часть" value={config.closing.accent} onChange={(v) => setValue(["closing","accent"], v)} /></div>
               <Field label="Описание" value={config.closing.description} multiline onChange={(v) => setValue(["closing","description"], v)} />
-              <div className="grid gap-4 md:grid-cols-2"><Field label="Телефон" value={config.closing.phone} onChange={(v) => setValue(["closing","phone"], v)} /><Field label="E-mail" value={config.closing.email} onChange={(v) => setValue(["closing","email"], v)} /></div>
+              <div className="grid gap-4 md:grid-cols-2"><Field label="Телефон (шапка и финальный блок)" value={config.closing.phone} onChange={(v) => setValue(["closing","phone"], v)} /><Field label="E-mail (шапка и финальный блок)" value={config.closing.email} onChange={(v) => setValue(["closing","email"], v)} /></div>
               <div className="grid gap-4 md:grid-cols-2"><Field label="Подпись в подвале" value={config.footer.tagline} onChange={(v) => setValue(["footer","tagline"], v)} /><Field label="Копирайт" value={config.footer.copyright} onChange={(v) => setValue(["footer","copyright"], v)} /></div>
             </Section>
           </TabsContent>

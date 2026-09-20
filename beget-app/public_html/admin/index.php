@@ -78,7 +78,7 @@ header("Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:;
     <main class="admin-main"><div class="notice" id="status" aria-live="polite">Изменения применятся на сайте после сохранения.</div><div id="editor"></div></main>
   </div>
   <script>window.NVP_ADMIN={csrf:<?= json_encode(csrf_token()) ?>,config:<?= json_encode(read_site_config(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>};</script>
-  <script src="/admin/admin.js?v=3" defer></script>
+  <script src="/admin/admin.js?v=4" defer></script>
 <?php endif; ?>
 </body>
 </html>

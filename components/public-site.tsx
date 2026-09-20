@@ -57,6 +57,7 @@ export function PublicSite({ config }: { config: SiteConfig }) {
           <span>{config.brand.title}<br /><small>{config.brand.subtitle}</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Основная навигация">
+          {config.closing.phone || config.closing.email ? <div className="header-contacts" aria-label="Контакты">{config.closing.phone ? <a href={`tel:${config.closing.phone.replace(/[^+\d]/g, "")}`}><span>Тел.</span><b>{config.closing.phone}</b></a> : null}{config.closing.email ? <a href={`mailto:${config.closing.email}`}><span>Почта</span><b>{config.closing.email}</b></a> : null}</div> : null}
           {config.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
         </nav>
         <button className="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span /><span /></button>
@@ -119,7 +120,7 @@ export function PublicSite({ config }: { config: SiteConfig }) {
             {config.program.cards.map((card, index) => (
               <article className="program-card reveal" key={index}>
                 <div className="program-card-visual program-card-photo" style={{ "--card-image": `url('${card.image.src}')` } as React.CSSProperties}>
-                  <span>{String(index + 1).padStart(2, "0")}</span><b aria-hidden="true">→</b><small>{card.eyebrow}</small>
+                  <span>{String(index + 1).padStart(2, "0")}</span><small>{card.eyebrow}</small>
                 </div>
                 <div className="program-card-body"><h3>{card.title}</h3><p>{card.description}</p></div>
               </article>

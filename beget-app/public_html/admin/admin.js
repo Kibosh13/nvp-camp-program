@@ -398,7 +398,7 @@
   function renderClosing() {
     const closing = panel("Финальный блок");
     const grid = el("div", "grid");
-    grid.append(field("Рубрика", ["closing", "kicker"]), field("Заголовок", ["closing", "title"]), field("Красная часть", ["closing", "accent"]), field("Описание", ["closing", "description"], { multiline: true }), field("Телефон", ["closing", "phone"]), field("E-mail", ["closing", "email"]));
+    grid.append(field("Рубрика", ["closing", "kicker"]), field("Заголовок", ["closing", "title"]), field("Красная часть", ["closing", "accent"]), field("Описание", ["closing", "description"], { multiline: true }), field("Телефон (шапка и финальный блок)", ["closing", "phone"]), field("E-mail (шапка и финальный блок)", ["closing", "email"]));
     closing.body.append(grid);
     const footer = panel("Подвал сайта");
     const footerGrid = el("div", "grid");

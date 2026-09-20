@@ -41,7 +41,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
   <title><?= h($seo['title']) ?></title>
   <link rel="icon" type="image/png" href="<?= h(public_image_url((string)$brand['logo']['src'])) ?>">
   <link rel="apple-touch-icon" href="/assets/logo-transparent.png?v=4">
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <link rel="stylesheet" href="/styles.css?v=5">
   <script src="/app.js?v=2" defer></script>
 </head>
 <body>
@@ -51,6 +51,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
       <span><?= h($brand['title']) ?><br><small><?= h($brand['subtitle']) ?></small></span>
     </a>
     <nav class="desktop-nav" aria-label="Основная навигация">
+      <?php if (!empty($closing['phone']) || !empty($closing['email'])): ?><div class="header-contacts" aria-label="Контакты"><?php if (!empty($closing['phone'])): ?><a href="tel:<?= h((string)preg_replace('/[^+\d]/', '', (string)$closing['phone'])) ?>"><span>Тел.</span><b><?= h($closing['phone']) ?></b></a><?php endif; ?><?php if (!empty($closing['email'])): ?><a href="mailto:<?= h($closing['email']) ?>"><span>Почта</span><b><?= h($closing['email']) ?></b></a><?php endif; ?></div><?php endif; ?>
       <?php foreach ($site['navigation'] as $item): ?><a href="<?= h($item['href']) ?>"><?= h($item['label']) ?></a><?php endforeach; ?>
     </nav>
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
@@ -105,7 +106,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
       <div class="program-grid">
         <?php foreach ($program['cards'] as $index => $card): $image = public_image_url((string)$card['image']['src']); ?>
         <article class="program-card reveal">
-          <div class="program-card-visual program-card-photo" style="--card-image:url('<?= h($image) ?>')"><span><?= h(str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT)) ?></span><b aria-hidden="true">→</b><small><?= h($card['eyebrow']) ?></small></div>
+          <div class="program-card-visual program-card-photo" style="--card-image:url('<?= h($image) ?>')"><span><?= h(str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT)) ?></span><small><?= h($card['eyebrow']) ?></small></div>
           <div class="program-card-body"><h3><?= h($card['title']) ?></h3><p><?= h($card['description']) ?></p></div>
         </article>
         <?php endforeach; ?>

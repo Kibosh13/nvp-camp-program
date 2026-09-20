@@ -229,8 +229,8 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
     title: "Смена, после которой",
     accent: "становятся командой",
     description: "Подготовим содержание под возраст, длительность смены и возможности площадки.",
-    phone: "",
-    email: "",
+    phone: "+79774840365",
+    email: "Dhdjdh@mail.ru",
   },
   footer: { tagline: "Практика · дисциплина · команда", copyright: "© 2026" },
 };
