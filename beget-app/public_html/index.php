@@ -41,7 +41,7 @@ $galleryClasses = ['gallery-item-wide', 'gallery-item-aiming', 'gallery-item-lin
   <title><?= h($seo['title']) ?></title>
   <link rel="icon" type="image/png" href="<?= h(public_image_url((string)$brand['logo']['src'])) ?>">
   <link rel="apple-touch-icon" href="/assets/logo-transparent.png?v=4">
-  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/styles.css?v=7">
   <script src="/app.js?v=2" defer></script>
 </head>
 <body>
