@@ -329,6 +329,7 @@ h1 em { color: var(--red-bright); font-style: normal; }
   .closing-mark { width: min(34vw, 132px); margin: 0; }
   .closing .section-kicker { margin-bottom: 16px; }
   .closing h2 { font-size: clamp(32px, 10vw, 44px); line-height: .96; overflow-wrap: anywhere; }
+  .closing h2 span { display: block; width: max-content; max-width: 100%; font-size: clamp(24px, 8.4vw, 37px); letter-spacing: -.025em; white-space: nowrap; }
   .closing-copy > p:not(.section-kicker) { margin: 22px 0 0; font-size: 17px; line-height: 1.45; }
   .contact-actions { margin-top: 24px; display: grid; grid-template-columns: 1fr; gap: 10px; }
   .contact-actions a { width: 100%; min-width: 0; padding: 14px 16px; }
@@ -348,6 +349,7 @@ h1 em { color: var(--red-bright); font-style: normal; }
   .closing { padding: 44px 16px 42px; gap: 0; }
   .closing-mark { display: none; }
   .closing h2 { font-size: clamp(29px, 9.5vw, 35px); }
+  .closing h2 span { font-size: clamp(23px, 8.1vw, 29px); }
   .site-footer { padding-inline: 16px; }
 }
 
